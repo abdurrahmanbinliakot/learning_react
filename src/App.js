@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import { useState,useEffect } from 'react';
+import Card  from './component/Card';
+import Post from './component/Post';
+
+
+// https://jsonplaceholder.typicode.com/posts
+
 
 function App() {
+
+  const [post,setPost] = useState([])
+  useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then((res) => res.json())
+    .then((data )=> setPost(data))
+  },[])
+
+console.log(post);
+  const book ={
+    name: "Quran",
+    page:1200,
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Card book={book}/>
+      <Post tableData={post}/>
     </div>
   );
 }
