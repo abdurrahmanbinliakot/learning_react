@@ -33,11 +33,11 @@ const comment = {
 };
 
 let dateFormater = (date) => date.toLocaleDateString();
-function Avatar(arrg) {
+let Avatar=(arrg)=> {
   return <img src={arrg.user.avatarUrl} alt={arrg.user.name} />;
 }
 
-function Userdetail(arrg) {
+let Userdetail=(arrg)=> {
   return (
     <div>
       <Avatar user={arrg.user} />
@@ -46,7 +46,7 @@ function Userdetail(arrg) {
   );
 }
 
-function Comment(arrg) {
+let Comment=(arrg)=> {
   // console.dir('hi')
   // process.stdout.write("hi")
   return (
