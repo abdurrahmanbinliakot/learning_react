@@ -17,13 +17,7 @@ const userObj = {
 const fullName = (obj) => obj.fname + " " + obj.lname;
 
 const element = (
-  <div>
-    <h1>Hello, {fullName(userObj)}!</h1>
-    <hr />
-    <img src={userObj.avatarLink} alt={fullName(userObj)}></img>
-    <br/>
-    <a href={userObj.link}>React Link</a>
-  </div>
+
 );
 root.render(element);
 
