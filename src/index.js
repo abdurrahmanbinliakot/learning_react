@@ -7,18 +7,16 @@ import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const userObj = {
-  fname: "Abdur",
-  lname: "Rahman",
-  link: "https://www.reactjs.org",
-  avatarLink: "https://avatars.githubusercontent.com/u/65095033?v=4",
-};
+let timer =()=>{
+  const element = (
+    <div>
+      <h1>একটি টাইমার এর উদাহরণ</h1>
+      <h2> এখন সময়: {new Date().toLocaleTimeString('bn-BD')}</h2>
+    </div>
+    );
+    root.render(element);
+}
 
-const fullName = (obj) => obj.fname + " " + obj.lname;
-
-const element = (
-
-);
-root.render(element);
+setInterval(timer,1000)
 
 reportWebVitals();
