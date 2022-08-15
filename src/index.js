@@ -1,22 +1,68 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+// import "./index.css";
 // import App from './App';
-
 import reportWebVitals from "./reportWebVitals";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-let timer =()=>{
-  const element = (
-    <div>
-      <h1>একটি টাইমার এর উদাহরণ</h1>
-      <h2> এখন সময়: {new Date().toLocaleTimeString('bn-BD')}</h2>
-    </div>
-    );
-    root.render(element);
+// Fuctional Component
+/* function Welcome(arrg){
+  console.log(arrg);
+  return <h1>Hello {arrg.name}!</h1>;
+}
+const element= (
+  <div>
+    <Welcome name="Abdur Rahman" />
+    <Welcome name="Tanim Billah" />
+    <Welcome name="Arif Billah" />
+  </div>
+);
+root.render(element) */
+
+
+
+//Example of a comment component
+
+const comment = {
+  date: new Date(),
+  text: "I am enjoing learning React!",
+  author: {
+    name: "Abdur Rahman",
+    avatarUrl: "https://avatars.githubusercontent.com/u/65095033?v=4",
+  },
+};
+
+let dateFormater = (date) => date.toLocaleDateString();
+function Avatar(arrg) {
+  return <img src={arrg.user.avatarUrl} alt={arrg.user.name} />;
 }
 
-setInterval(timer,1000)
+function Userdetail(arrg) {
+  return (
+    <div>
+      <Avatar user={arrg.user} />
+      <div>{arrg.user.name}</div>
+    </div>
+  );
+}
+
+function Comment(arrg) {
+  // console.dir('hi')
+  // process.stdout.write("hi")
+  return (
+    <div>
+      <Userdetail user={arrg.user} />
+      <p>{arrg.comment}</p>
+      <p>{dateFormater(arrg.date)}</p>
+    </div>
+  );
+}
+
+const element = (
+  <Comment date={comment.date} user={comment.author} comment={comment.text} />
+);
+
+root.render(element);
+
 
 reportWebVitals();
