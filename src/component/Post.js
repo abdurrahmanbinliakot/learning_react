@@ -1,7 +1,7 @@
 import React from "react";
 
 const Post = ({ tableData }) => {
-  console.log(tableData);
+  // console.log(tableData);
   return (
     <div>
       <table border="1px" sellSpacing="0" cellPadding="0">
